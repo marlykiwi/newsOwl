@@ -10,7 +10,10 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect("mongodb://localhost/newsowl", { useNewUrlParser: true })
+  .connect("mongodb://localhost/newsowl", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -35,6 +38,22 @@ app.use(cookieParser());
 
 // Express View engine setup
 
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    cookie: { maxAge: 24 * 60 * 60 * 1000 },
+    saveUninitialized: false,
+    resave: true,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 * 1000,
+    }),
+  })
+);
+
 app.use(
   require("node-sass-middleware")({
     src: path.join(__dirname, "public"),
@@ -56,5 +75,8 @@ app.use("/", index);
 
 const dashboard = require("./routes/dashboard");
 app.use("/dashboard", dashboard);
+
+const auth = require("./routes/auth");
+app.use("/", auth);
 
 module.exports = app;
