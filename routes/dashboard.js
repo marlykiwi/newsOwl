@@ -10,19 +10,22 @@ router.get("/", async (req, res, next) => {
       // console.log(response.data);
       let articles = [];
       for (let article of response.data) {
-        let { data } = await axios.get(
-          `https://hacker-news.firebaseio.com/v0/item/${article}.json?print=pretty`
-        );
-        console.log(data);
-        // articles.push(data);
+        while (articles.length < 10) {
+          let { data } = await axios.get(
+            `https://hacker-news.firebaseio.com/v0/item/${article}.json?print=pretty`
+          );
+          // console.log(data);
+          articles.push(data);
+        }
+        console.log(articles);
+        // res.render("dashboard/dashboard");
+        /* axios
+  .get(
+    `https://hacker-news.firebaseio.com/v0/item/${response.data[0]}.json?print=pretty`
+    )
+    .then((res) => console.log(res)); */
+        // res.render("dashboard/dashboard");
       }
-      // console.log(articles);
-      /* axios
-        .get(
-          `https://hacker-news.firebaseio.com/v0/item/${response.data[0]}.json?print=pretty`
-        )
-        .then((res) => console.log(res)); */
-      // res.render("dashboard/dashboard");
     })
     .catch((error) => {
       console.log(error);
