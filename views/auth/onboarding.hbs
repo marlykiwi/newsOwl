@@ -1,0 +1,28 @@
+<div>
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" href="/logout">Logout</a>
+    </li>
+  </ul>
+</div>
+<br>
+<div class="d-flex justify-content-center">
+  <h1 class="dashboard-h1">We know you love news</h1>
+  <h2 class="dashboard-h1">Choose your preferences!</h2>
+</div>
+<div class="container">
+
+  <form action="/onboarding" method="POST">
+
+    <label for="keyword">Keyword:</label>
+    <input type="text" name="keyword" id="keyword">
+
+    <button type="submit">Apply</button>
+
+  </form>
+
+
+  {{#if message}}
+  <p style="color: red">{{message}}</p>
+  {{/if}}
+</div>

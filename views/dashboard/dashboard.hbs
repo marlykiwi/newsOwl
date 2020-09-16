@@ -1,0 +1,32 @@
+<div>
+  <div>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="/logout">Logout</a>
+      </li>
+    </ul>
+  </div>
+  <br>
+  <div class="justify-content-center">
+    <h1 class="dashboard-h1">We know you love news</h1>
+    <h2 class="dashboard-h1">Choose your preferences!</h2>
+  </div>
+
+  <form action="/dashboard" method="POST" class="searchbar">
+    <input id="myInput" type="text" name="keyword" placeholder="Search">
+    <button type="submit">Search</button>
+  </form>
+  ​
+  ​
+  <div class="container">
+    {{#each articlesList}}
+    <div class="article-container">
+      <a href="{{this.url}}">
+        <img src="{{this.urlToImage}}" alt="{{this.title}}">
+        <h2>{{this.title}}</h2>
+      </a>
+    </div>
+    {{/each}}
+  </div>
+
+</div>

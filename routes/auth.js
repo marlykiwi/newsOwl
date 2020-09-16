@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+const loginCheck = require("./middleware");
 
 /* GET home page */
 
@@ -36,8 +36,11 @@ router.post("/signup", (req, res, next) => {
       User.create({
         username: username,
         password: hash,
+        keyword: "",
       }).then((dbUser) => {
-        res.redirect("login");
+        console.log("it finishes the create");
+        req.session.user = dbUser;
+        res.redirect("/onboarding");
       });
     }
   });
@@ -53,7 +56,7 @@ router.post("/login", (req, res, next) => {
       }
       if (bcrypt.compareSync(password, found.password)) {
         req.session.user = found;
-        res.redirect("main");
+        res.redirect("/dashboard");
       } else {
         res.render("login", { message: "Invalid credentials" });
       }
