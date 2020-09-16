@@ -76,4 +76,10 @@ app.use("/", index);
 const auth = require("./routes/auth");
 app.use("/", auth);
 
+const dashboard = require("./routes/dashboard");
+app.use("/dashboard", dashboard);
+
+const onboard = require("./routes/onboarding");
+app.use("/onboarding", onboard);
+
 module.exports = app;
