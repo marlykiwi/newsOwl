@@ -11,10 +11,15 @@
     <h1 class="dashboard-h1">We know you love news</h1>
     <h2 class="dashboard-h1">Choose your preferences!</h2>
   </div>
-
   <form action="/dashboard" method="POST" class="searchbar">
     <input id="myInput" type="text" name="keyword" placeholder="Search">
     <button type="submit">Search</button>
+  </form>
+  <form action="/dashboard" method="POST" class="searchbar">
+    {{#with user}}
+    <input id="myInput" type="hidden" name="keyword" value={{this.keyword}}>
+    {{/with}}
+    <button type="submit">lets go filtered</button>
   </form>
   ​
   ​
@@ -28,5 +33,4 @@
     </div>
     {{/each}}
   </div>
-
 </div>

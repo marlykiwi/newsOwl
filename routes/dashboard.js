@@ -12,7 +12,6 @@ const loginCheck = require("./middleware");
 //   );
 //   const tenArticlesId = ids.data.slice(0, 10);
 //   const tenArticlesList = {};
-
 //   // console.log(tenArticlesList);
 //   for (let id of tenArticlesId) {
 //     const article = await axios.get(
@@ -37,10 +36,13 @@ router.get("/", loginCheck(), async (req, res, next) => {
       "apiKey=182c2112a69541b2835808c0ce666cb9";
     let articleList = await axios.get(key);
     console.log("hello"), articleList;
-
+    const user = await User.findById(req.session.user._id);
+    const keyword = user.keyword;
+    // calling Ke
     res.render("dashboard/dashboard", {
       articlesList: articleList.data.articles,
       user: req.session.user,
+      keyword: keyword,
     });
   } catch (err) {
     console.log("it tried and failed", err);
@@ -50,17 +52,17 @@ router.get("/", loginCheck(), async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   const { keyword } = req.body;
+  console.log(keyword);
   const filteredArticles = await axios.get(
     `https://newsapi.org/v2/top-headlines?q=${keyword}&apiKey=182c2112a69541b2835808c0ce666cb9`
   );
-  // console.log(filteredArticles.data.articles);
+  console.log("went crazy filtered");
   res.render("dashboard/dashboard", {
     articlesList: filteredArticles.data.articles,
   });
 });
 
 module.exports = router;
-
 // let articles = [];
 // axios.get('`https://hacker-news.firebaseio.com/v0/item/${article}.json?print=pretty`')
 //   async (response) => {
