@@ -8,13 +8,17 @@
   </div>
   <br>
   {{!-- ------------------------------------- --}}
-  <div class="flags">
+  <div class="d-flex flex-row h-10">
     {{#each flags}}
-    <form action="/dashboard" method="POST" class="button">
+    <form action="/dashboard" method="POST">
       <input type="hidden" name="flag" id="flags" value="{{this.init}}">
-      <button type="submit">
-        <img src={{this.image}} alt={{this.init}}>
-      </button>
+      <ul class="nav justify-content-end d-flex flex-wrap">
+        <li class="nav-item">
+          <button class="h-10" type="submit">
+            <img class="img-thumbnail" src={{this.image}} alt={{this.init}} style="size: 1vw;">
+          </button>
+        </li>
+      </ul>
     </form>
     {{/each}}
   </div>
@@ -36,16 +40,19 @@
     <button type="submit">lets go filtered</button>
   </form>
   ​
+
   ​
   <div class="container">
     {{#each articlesList}}
     <div class="article-container">
-      <p>{{this.source}}</p>
+      <p>{{this.source.name}}</p>
       <a href="{{this.url}}">
         <img src="{{this.urlToImage}}" alt="{{this.title}}">
         <h2>{{this.title}}</h2>
+        <h3 style="font-size: 10px;">{{this.author}}</h3>
       </a>
     </div>
     {{/each}}
+
   </div>
 </div>
