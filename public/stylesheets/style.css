@@ -6,14 +6,24 @@ body {
 
 a {
   text-decoration-color: none;
-  color: #86868b; }
+  color: #444444; }
+
+h1 {
+  color: #444444; }
 
 h2 {
   font-size: 15px;
-  width: 18vw; }
+  width: 18vw;
+  color: #444444; }
 
 .btn.btn-outline {
   background-color: white; }
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center; }
 
 .glow-on-hover {
   width: 220px;
@@ -73,7 +83,8 @@ h2 {
     background-position: 0 0; } }
 
 .h2-dashboard {
-  font-size: 15px; }
+  font-size: 15px;
+  color: #444444; }
 
 .flags-button {
   display: flex;
@@ -138,5 +149,8 @@ img {
 .searchbar {
   width: 300px;
   margin: 0 auto; }
+
+.box.flex-column {
+  padding: 10px; }
 
 /*# sourceMappingURL=style.css.map */

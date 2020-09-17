@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center">
+<div class="main-container d-flex justify-content-center">
   <div class="d-flex flex-column">
     <div class="p-2">
       <ul class="nav justify-content-end">
@@ -60,11 +60,11 @@
   ​<div class="article-box d-flex flex-column text-align-center">
     <div class="p-2 d-flex flex-wrap">
       {{#each articlesList}}
-      <div class="flex-column">
-        <p>{{this.source.name}}</p>
+      <div class="box flex-column">
+        <p style="text-align: center;">{{this.source.name}}</p>
         <a href="{{this.url}}">
           <img class="article-images" src="{{this.urlToImage}}" alt="{{this.title}}">
-          <h2 class="h2-dashboard">{{this.title}}</h2>
+          <h2 style="text-align: center" class=" h2-dashboard">{{this.title}}</h2>
           {{!-- <h3 style="font-size: 10px;">{{this.author}}</h3> --}}
         </a>
       </div>
