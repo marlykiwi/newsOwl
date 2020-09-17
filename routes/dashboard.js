@@ -4,6 +4,7 @@ const axios = require("axios");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const loginCheck = require("./middleware");
+const flags = require("../flags.json");
 
 // router.get("/", async (req, res, next) => {
 //   // below is array
@@ -30,10 +31,13 @@ const loginCheck = require("./middleware");
 router.get("/", loginCheck(), async (req, res, next) => {
   try {
     console.log("entering the get");
+    // console.log(flags);
+    // -------------------------------
+    // const init = "us";
     const key =
-      "http://newsapi.org/v2/top-headlines?" +
-      "country=us&" +
-      "apiKey=182c2112a69541b2835808c0ce666cb9";
+      "http://newsapi.org/v2/top-headlines?country=us" +
+      // init +
+      "&apiKey=182c2112a69541b2835808c0ce666cb9";
     let articleList = await axios.get(key);
     console.log("hello"), articleList;
     const user = await User.findById(req.session.user._id);
@@ -43,6 +47,7 @@ router.get("/", loginCheck(), async (req, res, next) => {
       articlesList: articleList.data.articles,
       user: req.session.user,
       keyword: keyword,
+      flags: flags,
     });
   } catch (err) {
     console.log("it tried and failed", err);
@@ -51,16 +56,32 @@ router.get("/", loginCheck(), async (req, res, next) => {
 });
 
 router.post("/", async (req, res, next) => {
-  // const { keyword } = req.body;
+  let { keyword, flag } = req.body;
   const user = await User.findById(req.session.user._id);
-  const keyword = user.keyword;
-  console.log(keyword);
-  const filteredArticles = await axios.get(
-    `https://newsapi.org/v2/top-headlines?q=${keyword}&apiKey=182c2112a69541b2835808c0ce666cb9`
-  );
+  let url = "";
+  if (flag) {
+    url =
+      "http://newsapi.org/v2/top-headlines?country=" +
+      flag +
+      "&apiKey=182c2112a69541b2835808c0ce666cb9";
+  } else if (keyword) {
+    url = `https://newsapi.org/v2/top-headlines?q=${keyword}&apiKey=182c2112a69541b2835808c0ce666cb9`;
+  } else {
+    keyword = user.keyword;
+    url = `https://newsapi.org/v2/top-headlines?q=${keyword}&apiKey=182c2112a69541b2835808c0ce666cb9`;
+  }
+  // -------------------------------
+  console.log(keyword, flag);
+  // const filteredArticles = await axios.get(
+  //   `https://newsapi.org/v2/top-headlines?q=${keyword}&apiKey=182c2112a69541b2835808c0ce666cb9`
+  // );
+  const filteredArticles = await axios.get(url);
+
   console.log("went crazy filtered");
+  console.log(filteredArticles.data.articles);
   res.render("dashboard/dashboard", {
     articlesList: filteredArticles.data.articles,
+    flags: flags,
   });
 });
 

@@ -8,6 +8,10 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+// ------------------------------------
+// const flags = require("./flags.json");
+
+// console.log(require("./flags.json"));
 
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost/newsowl", {

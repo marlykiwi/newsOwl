@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const loginCheck = require("./middleware");
+const flags = require("../flags.json");
 
 router.get("/", loginCheck(), (req, res, next) => {
   console.log("it enters ");
