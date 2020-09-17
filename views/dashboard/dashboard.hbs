@@ -38,7 +38,7 @@
           <div class="input-group">
             <input class="form-control" id="myInput" type="text" name="keyword" placeholder="Search">
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary toggle" type="submit">Search</button>
+              <button class="btn btn-outline-secondary" type="submit">Search</button>
             </div>
           </div>
         </form>
@@ -48,7 +48,7 @@
             {{#with user}}
             <input id="myInput" type="text" name="keyword" value={{keyword}}>
             {{/with}}
-            <button class="btn btn-outline" type="submit">lets go filtered</button>
+            <button class="btn btn-dark glow-on-hover" type="submit">Let´s go filtered</button>
           </form>
 
         </div>
@@ -57,18 +57,19 @@
     </div>
   </div>
 
-  ​
-  <div class="p-2 d-flex flex-wrap">
-    {{#each articlesList}}
-    <div class="d-flex flex-column">
-      <p>{{this.source.name}}</p>
-      <a href="{{this.url}}">
-        <img src="{{this.urlToImage}}" alt="{{this.title}}">
-        <h2>{{this.title}}</h2>
-        {{!-- <h3 style="font-size: 10px;">{{this.author}}</h3> --}}
-      </a>
-    </div>
-    {{/each}}
+  ​<div class="d-flex flex-column text-align-center">
+    <div class="p-2 d-flex flex-wrap">
+      {{#each articlesList}}
+      <div class="d-flex flex-column">
+        <p>{{this.source.name}}</p>
+        <a href="{{this.url}}">
+          <img class="article-image" src="{{this.urlToImage}}" alt="{{this.title}}">
+          <h2 class="h2-dashboard">{{this.title}}</h2>
+          {{!-- <h3 style="font-size: 10px;">{{this.author}}</h3> --}}
+        </a>
+      </div>
+      {{/each}}
 
+    </div>
   </div>
 </div>
