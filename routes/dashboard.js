@@ -51,7 +51,9 @@ router.get("/", loginCheck(), async (req, res, next) => {
 });
 
 router.post("/", async (req, res, next) => {
-  const { keyword } = req.body;
+  // const { keyword } = req.body;
+  const user = await User.findById(req.session.user._id);
+  const keyword = user.keyword;
   console.log(keyword);
   const filteredArticles = await axios.get(
     `https://newsapi.org/v2/top-headlines?q=${keyword}&apiKey=182c2112a69541b2835808c0ce666cb9`
