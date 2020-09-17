@@ -70,6 +70,7 @@ router.post("/", async (req, res, next) => {
     keyword = user.keyword;
     url = `https://newsapi.org/v2/top-headlines?q=${keyword}&apiKey=182c2112a69541b2835808c0ce666cb9`;
   }
+
   // -------------------------------
   console.log(keyword, flag);
   // const filteredArticles = await axios.get(

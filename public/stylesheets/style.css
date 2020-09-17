@@ -12,6 +12,9 @@ h2 {
   font-size: 15px;
   width: 18vw; }
 
+.btn.btn-outline {
+  background-color: white; }
+
 .glow-on-hover {
   width: 220px;
   height: 50px;
@@ -75,7 +78,9 @@ h2 {
 .flags-button {
   display: flex;
   flex-direction: row;
-  background-color: outline;
+  background-color: white;
+  text-decoration-color: white;
+  transition: none;
   flex-wrap: wrap;
   padding: 0;
   width: cover;
@@ -92,9 +97,13 @@ h2 {
   width: 25px;
   height: auto; }
 
+.artcile-box {
+  max-width: 20vw; }
+
 img {
   width: 180px;
-  height: 200px; }
+  height: auto;
+  background-color: white; }
 
 .container {
   display: flex;
@@ -106,7 +115,8 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px; }
+  padding: 50px;
+  max-width: 20vw; }
 
 .small-container {
   display: flex;
@@ -114,8 +124,12 @@ img {
   justify-content: center; }
 
 .article-images {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 20vw;
   max-height: 25vh;
-  width: auto; }
+  width: auto;
+  padding: 10px; }
 
 .article-container h2 {
   font-size: 15px;
