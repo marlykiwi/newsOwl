@@ -1,16 +1,27 @@
-<div class="container">
-    <form action="/signup" method="POST">
+<div class="d-flex flex-column">
+    <div class="row text-center">
 
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
+        <form action="/signup" method="POST">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" class="col text-align-center" name="username" id="username" placeholder="username">
+                <br>
+            </div>
+            <div>
+                <label for="password">password:</label>
+                <input type="password" class="col text-align-center" name="password" placeholder="password">
+                <br>
+                <div class="wrapper">
+                    <span class="group-btn">
+                        <button type="submit" class="btn btn-primary btn-md">Sign up</button>
+                    </span>
+                </div>
+            </div>
+        </form>
 
-        <label for="password">password:</label>
-        <input type="password" name="password">
 
-        <button type="submit">Sign up</button>
-    </form>
-
-    {{#if message}}
-    <p style="color: red">{{message}}</p>
-    {{/if}}
+        {{#if message}}
+        <p style="color: red">{{message}}</p>
+        {{/if}}
+    </div>
 </div>

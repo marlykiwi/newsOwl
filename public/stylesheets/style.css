@@ -1,14 +1,36 @@
 body {
-  padding: 20px;
+  padding: 0px;
   margin: 0px;
+  width: 95vw;
   font: 14px "Kanit", "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00b7ff; }
+  text-decoration-color: none;
+  color: #86868b; }
 
 h2 {
   font-size: 15px;
   width: 18vw; }
+
+.flags-button {
+  display: flex;
+  flex-direction: row;
+  background-color: outline;
+  flex-wrap: wrap;
+  padding: 0;
+  width: cover;
+  max-height: 60px; }
+
+.flags-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  height: auto; }
+
+.flags-little {
+  width: 25px;
+  height: auto; }
 
 img {
   width: 180px;
@@ -25,6 +47,15 @@ img {
   flex-direction: column;
   align-items: center;
   padding: 50px; }
+
+.small-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.article-images {
+  max-width: auto;
+  height: auto; }
 
 .article-container h2 {
   font-size: 15px;

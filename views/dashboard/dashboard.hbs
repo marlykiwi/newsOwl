@@ -1,55 +1,71 @@
-<div>
-  <div>
-    <ul class="nav justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link active" href="/logout">Logout</a>
-      </li>
-    </ul>
+<div class="d-flex justify-content-center">
+  <div class="d-flex flex-column">
+    <div class="p-2">
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" href="/logout">Logout</a>
+        </li>
+      </ul>
+      <div class="flags-row">
+        {{#each flags}}
+        <form action="/dashboard" method="POST">
+          <input type="hidden" name="flag" id="flags" value="{{this.init}}">
+          <div>
+            <button class="btn btn-outline" type="submit">
+              <img class="flags-little" src={{this.image}} alt={{this.init}}>
+            </button>
+        </form>
+      </div>
+      {{/each}}
+    </div>
   </div>
   <br>
   {{!-- ------------------------------------- --}}
-  <div class="d-flex flex-row h-10">
-    {{#each flags}}
-    <form action="/dashboard" method="POST">
-      <input type="hidden" name="flag" id="flags" value="{{this.init}}">
-      <ul class="nav justify-content-end d-flex flex-wrap">
-        <li class="nav-item">
-          <button class="h-10" type="submit">
-            <img class="img-thumbnail" src={{this.image}} alt={{this.init}} style="size: 1vw;">
-          </button>
-        </li>
-      </ul>
-    </form>
-    {{/each}}
-  </div>
 
   {{!-- ------------------------------------- --}}
 
-  <div class="justify-content-center">
-    <h1 class="dashboard-h1">We know you love <span style="text-decoration: line-through">Owls</span> news</h1>
-    <h2 class="dashboard-h1">Choose your preferences!</h2>
+  <div class="p-2">
+    <div class="p-2 d-flex flex-column">
+      <h1 class="text-center">We know you love <span style="text-decoration: line-through">Owls</span> news</h1>
+    </div>
+    <div class="row justify-content-center">
+      <h4 class=" text-center">Search for a topic or get filtered!</h2>
+    </div>
+    <br>
+    <div class="p-2 d-flex flex-column">
+      <div class="d-flex flex-column">
+        <form action="/dashboard" method="POST" class="searchbar">
+          <div class="input-group">
+            <input class="form-control" id="myInput" type="text" name="keyword" placeholder="Search">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary toggle" type="submit">Search</button>
+            </div>
+          </div>
+        </form>
+        <br>
+        <div class="d-flex flex-wrap">
+          <form action="/dashboard" method="POST" class="searchbar">
+            {{#with user}}
+            <input id="myInput" type="text" name="keyword" value={{keyword}}>
+            {{/with}}
+            <button class="btn btn-outline" type="submit">lets go filtered</button>
+          </form>
+
+        </div>
+      </div>
+      ​
+    </div>
   </div>
-  <form action="/dashboard" method="POST" class="searchbar">
-    <input id="myInput" type="text" name="keyword" placeholder="Search">
-    <button type="submit">Search</button>
-  </form>
-  <form action="/dashboard" method="POST" class="searchbar">
-    {{#with user}}
-    <input id="myInput" type="text" name="keyword" value={{keyword}}>
-    {{/with}}
-    <button type="submit">lets go filtered</button>
-  </form>
-  ​
 
   ​
-  <div class="container">
+  <div class="p-2 d-flex flex-wrap">
     {{#each articlesList}}
-    <div class="article-container">
+    <div class="d-flex flex-column">
       <p>{{this.source.name}}</p>
       <a href="{{this.url}}">
         <img src="{{this.urlToImage}}" alt="{{this.title}}">
         <h2>{{this.title}}</h2>
-        <h3 style="font-size: 10px;">{{this.author}}</h3>
+        {{!-- <h3 style="font-size: 10px;">{{this.author}}</h3> --}}
       </a>
     </div>
     {{/each}}
