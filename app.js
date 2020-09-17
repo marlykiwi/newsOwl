@@ -10,7 +10,7 @@ const logger = require("morgan");
 const path = require("path");
 
 mongoose
-  .connect(process.env.passDB || "mongodb://localhost/newsowl", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/newsowl", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
