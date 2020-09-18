@@ -1,16 +1,17 @@
 <div class="main-container d-flex justify-content-center">
   <div class="d-flex flex-column ml-3">
-    <div class="p-2">
-      <ul class="nav justify-content-end">
+    <div class="p-2" style="background-color: black">
+      <ul class=" nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link active" style="color: black" href="/onboarding">My filter</a>
+          <a class="nav-link active" style="color: white" href="/onboarding">My filter</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" style="color: black" href="/logout">Logout</a>
+          <a class="nav-link active" style="color: white" href="/logout">Logout</a>
         </li>
       </ul>
     </div>
     <div class="d-flex flex-column ml-3">
+      <br>
       <div class="p-2 flags-row justify-content-center">
         {{#each flags}}
         <form action="/dashboard" method="POST">
