@@ -1,29 +1,39 @@
-<div class="d-flex flex-column">
-    <div class="d-flex flex-column w-50">
-        <div class="row text-center">
+<div>
+    <div>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link active" style="color: #444444" href="/signup">Sign up</a>
+            </li>
+        </ul>
+    </div>
 
-            <form action="/login" method="POST">
-                <div>
-                    <label for="username">Username:</label>
-                    <input type="text" class="col text-align-center" name="username" id="username"
-                        placeholder="username">
-                    <br>
-                </div>
-                <div>
-                    <label for="password">password:</label>
-                    <input type="password" class="col text-align-center" name="password" placeholder="password">
-                    <br>
-                    <div class="wrapper">
-                        <span class="group-btn">
-                            <button type="submit" class="btn btn-primary btn-md">Log In</button>
-                        </span>
+    <div class="d-flex flex-column">
+        <div class="d-flex flex-column w-50">
+            <div class="row text-center">
+
+                <form action="/login" method="POST">
+                    <div>
+                        <label for="username">Username:</label>
+                        <input type="text" class="col text-align-center" name="username" id="username"
+                            placeholder="username">
+                        <br>
                     </div>
-                </div>
-            </form>
+                    <div>
+                        <label for="password">password:</label>
+                        <input type="password" class="col text-align-center" name="password" placeholder="password">
+                        <br>
+                        <div class="wrapper">
+                            <span class="group-btn">
+                                <button type="submit" class="btn btn-primary btn-md">Log In</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
 
-            {{#if message}}
-            <p style="color: red">{{message}}</p>
-            {{/if}}
+                {{#if message}}
+                <p style="color: red">{{message}}</p>
+                {{/if}}
+            </div>
         </div>
     </div>
 </div>

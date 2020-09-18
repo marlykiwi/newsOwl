@@ -1,7 +1,6 @@
 body {
   padding: 0px;
   margin: 0px;
-  width: 95vw;
   font: 14px "Kanit", "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
@@ -15,6 +14,11 @@ h2 {
   font-size: 15px;
   width: 18vw;
   color: #444444; }
+
+.onboarding-background {
+  background-image: url("https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fca%2F43%2Ff6%2Fca43f6cb722c0a637b4496b54ea5a86f.gif");
+  background-size: cover;
+  background-repeat: no-repeat; }
 
 .btn.btn-outline {
   background-color: white; }

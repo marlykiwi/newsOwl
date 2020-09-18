@@ -1,28 +1,46 @@
-<div>
-  <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <a class="nav-link active" href="/logout">Logout</a>
-    </li>
-  </ul>
-</div>
-<br>
-<div class="d-flex justify-content-center">
-  <h1 class="dashboard-h1">We know you love news</h1>
-  <h2 class="dashboard-h1">Choose your preferences!</h2>
-</div>
-<div class="container">
+<div class="onboarding-background d-flex flex-column">
+  <div>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" style="color: white" href="/logout">Logout</a>
+      </li>
+    </ul>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
-  <form action="/onboarding" method="POST">
+  <div class="justify-content-center">
+    <div class="p-2 d-flex justify-content-center">
+      <h1 class="dashboard-h1" style="color: white">We know you love news</h1>
+    </div>
+    <div class="p-2 d-flex justify-content-center">
+      <h3 class="dashboard-h1" style="color: white">Choose your preferences!</h2>
+    </div>
+    <br>
+    <div class="p-2 container d-flex justify-content-center">
+      <div class="d-flex flex-column">
+        <form action="/onboarding" method="POST" class="searchbar" style="min-width: 30vw; color: white">
+          <div class="input-group">
+            <div>
+              <label for="keyword"></label>
+            </div>
+            <input class="form-control" type="text" name="keyword" id="keyword"
+              placeholder="Type your filter keyword (e.g.: tesla)">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" style="color: white" type="submit">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
 
-    <label for="keyword">Keyword:</label>
-    <input type="text" name="keyword" id="keyword">
 
-    <button type="submit">Apply</button>
-
-  </form>
-
-
-  {{#if message}}
-  <p style="color: red">{{message}}</p>
-  {{/if}}
+    {{#if message}}
+    <p style="color: red">{{message}}</p>
+    {{/if}}
+  </div>
 </div>
