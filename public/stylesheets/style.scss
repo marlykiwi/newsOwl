@@ -18,6 +18,12 @@ h2 {
   color: #444444;
 }
 
+.index-background {
+  background-image: url("https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.gifer.com%2FNKJf.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .onboarding-background {
   background-image: url("https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fca%2F43%2Ff6%2Fca43f6cb722c0a637b4496b54ea5a86f.gif");
   background-size: cover;
@@ -33,6 +39,10 @@ h2 {
   flex-direction: column;
   align-content: center;
   align-items: center;
+}
+
+.nav.justify-content-end {
+  padding: 20px 40px 20px 40px;
 }
 
 .glow-on-hover {

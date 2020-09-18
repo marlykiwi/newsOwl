@@ -1,34 +1,38 @@
 <div>
-    <div>
+    <div style="background-color: black">
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <a class="nav-link active" style="color: #444444" href="/signup">Sign up</a>
+                <a class="nav-link active" style="color: white" href="/signup">Sign up</a>
             </li>
         </ul>
     </div>
-
+    <br>
+    <br>
+    <br>
     <div class="d-flex flex-column">
-        <div class="d-flex flex-column w-50">
-            <div class="row text-center">
-
-                <form action="/login" method="POST">
-                    <div>
-                        <label for="username">Username:</label>
-                        <input type="text" class="col text-align-center" name="username" id="username"
-                            placeholder="username">
-                        <br>
-                    </div>
-                    <div>
-                        <label for="password">password:</label>
-                        <input type="password" class="col text-align-center" name="password" placeholder="password">
-                        <br>
-                        <div class="wrapper">
-                            <span class="group-btn">
-                                <button type="submit" class="btn btn-primary btn-md">Log In</button>
-                            </span>
+        <div class="d-flex flex-row justify-content-center">
+            <div class="flex-row text-center">
+                <h1>Log in</h1>
+                <div class="container">
+                    <form action="/login" method="POST">
+                        <div>
+                            <label for="username"></label>
+                            <input type="text" class="form-control" name="username" id="username"
+                                placeholder="Username">
                         </div>
-                    </div>
-                </form>
+                        <div>
+                            <label for="password"></label>
+                            <input type="password" class="form-control" name="password" placeholder="Password">
+                            <br>
+                            <div class="wrapper">
+                                <span class="group-btn">
+                                    <button type="submit" class="btn btn-primary btn-md"
+                                        style="background-color: black; border-color: black">Log In</button>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
                 {{#if message}}
                 <p style="color: red">{{message}}</p>

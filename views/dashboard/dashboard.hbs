@@ -3,10 +3,10 @@
     <div class="p-2">
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link active" style="color: #444444" href="/onboarding">Onboarding</a>
+          <a class="nav-link active" style="color: black" href="/onboarding">My filter</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" style="color: #444444" href="/logout">Logout</a>
+          <a class="nav-link active" style="color: black" href="/logout">Logout</a>
         </li>
       </ul>
     </div>
@@ -32,38 +32,44 @@
   <div class="p-2 flex-column align-content-center" style="background-color:black">
     <br>
     <div class="p-2 d-flex flex-column">
-      <h1 class="text-center" style="color: white">We know you love <span
-          style="text-decoration: line-through">Owls</span> news</h1>
+      <h1 class="text-center" style="color: white; webkit-text-stroke: 2px black; text-shadow: 2px 2px #06ff01">
+        We know
+        you love <span style="text-decoration: line-through">Owls</span> news!</h1>
     </div>
-    <div class="row justify-content-center">
-      <h4 class=" text-center" style="color: white">Search for a topic or get filtered!</h2>
-    </div>
-    <br>
     <div class="p-2 d-flex flex-column">
       <div class="d-flex flex-column">
-        <div>
-          <div class="d-flex justify-content-center">
-            <form action="/dashboard" method="POST" class="searchbar">
-              <div class="input-group">
-                <input class="form-control" id="myInput" type="text" name="keyword" placeholder="Search">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary" type="submit" style="color: white">Search</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <br>
         <div class="d-flex justify-content-center">
           <form action="/dashboard" method="POST" class="searchbar">
             {{#with user}}
             <input id="myInput" type="hidden" name="keyword" value={{keyword}}>
             {{/with}}
-            <button class="btn btn-dark glow-on-hover m-0" style="border-color: white" type="submit">Let´s go
-              filtered</button>
+            <div class="d-flex flex-row justify-content-center">
+              <br>
+              <button class="btn btn-dark glow-on-hover" style="border-color: white" type="submit">Let´s go
+                filtered</button>
+            </div>
           </form>
-
         </div>
+        <br>
+        <div class="row justify-content-center">
+          <p class=" text-center" style="color: darkgrey">...or search for a different topic</p>
+        </div>
+        <div>
+          <div class="d-flex justify-content-center">
+            <form action="/dashboard" method="POST" style="color: black;" class="searchbar">
+              <div class="input-group">
+                <input class="form-control" id="myInput" style="color: black" type="text" name="keyword"
+                  placeholder="Search">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" style="color: white; border-color: white" type="submit"
+                    style="color: white">Search</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+
       </div>
       ​
     </div>
